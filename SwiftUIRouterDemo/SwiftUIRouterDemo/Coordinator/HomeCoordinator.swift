@@ -20,14 +20,18 @@ struct HomeCoordinator: View {
         RoutingView(router: router) { route in
             switch route {
             case .home:
-                HomeScreen {
-                    router.push(.detail)
-                }
+                HomeScreen(goToDetail: showDetail)
             case .detail:
-                HomeDetailScreen {
-                    router.pop()
-                }
+                HomeDetailScreen(goBack: goBack)
             }
         }
+    }
+    
+    private func showDetail() {
+        router.push(.detail)
+    }
+    
+    private func goBack() {
+        router.pop()
     }
 }

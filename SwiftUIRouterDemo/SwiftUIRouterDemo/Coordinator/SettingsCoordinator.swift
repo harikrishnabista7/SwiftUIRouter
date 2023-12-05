@@ -21,14 +21,18 @@ struct SettingsCoordinator: View {
         RoutingView(router: router) { route in
             switch route {
             case .settings:
-                SettingsScreen {
-                    router.presentCover(.editProfile)
-                }
+                SettingsScreen(editProfile: presentEditProfile)
             case .editProfile:
-                EditProfileScreen {
-                    router.dismiss()
-                }
+                EditProfileScreen(dismiss: dismiss)
             }
         }
+    }
+
+    private func presentEditProfile() {
+        router.presentCover(.editProfile)
+    }
+
+    private func dismiss() {
+        router.dismiss()
     }
 }
