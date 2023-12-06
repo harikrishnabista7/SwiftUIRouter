@@ -17,6 +17,8 @@
 		118F67BB2B1F8177002CD0B8 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118F67BA2B1F8177002CD0B8 /* HomeScreen.swift */; };
 		118F67BD2B1F8185002CD0B8 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118F67BC2B1F8185002CD0B8 /* SettingsScreen.swift */; };
 		118F67BF2B1F819D002CD0B8 /* EditProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118F67BE2B1F819D002CD0B8 /* EditProfileScreen.swift */; };
+		11B234D62B20CC3100481368 /* PresentedFromHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B234D52B20CC3100481368 /* PresentedFromHome.swift */; };
+		11B234D82B20CC7400481368 /* PushedFromPresented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B234D72B20CC7400481368 /* PushedFromPresented.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		118F67BA2B1F8177002CD0B8 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		118F67BC2B1F8185002CD0B8 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		118F67BE2B1F819D002CD0B8 /* EditProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileScreen.swift; sourceTree = "<group>"; };
+		11B234D52B20CC3100481368 /* PresentedFromHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentedFromHome.swift; sourceTree = "<group>"; };
+		11B234D72B20CC7400481368 /* PushedFromPresented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushedFromPresented.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 			children = (
 				118F67B82B1F8165002CD0B8 /* HomeDetailScreen.swift */,
 				118F67BA2B1F8177002CD0B8 /* HomeScreen.swift */,
+				11B234D52B20CC3100481368 /* PresentedFromHome.swift */,
+				11B234D72B20CC7400481368 /* PushedFromPresented.swift */,
 				118F67BC2B1F8185002CD0B8 /* SettingsScreen.swift */,
 				118F67BE2B1F819D002CD0B8 /* EditProfileScreen.swift */,
 			);
@@ -194,9 +200,11 @@
 				118F67BF2B1F819D002CD0B8 /* EditProfileScreen.swift in Sources */,
 				118F67BD2B1F8185002CD0B8 /* SettingsScreen.swift in Sources */,
 				118F67B42B1F812D002CD0B8 /* SettingsCoordinator.swift in Sources */,
+				11B234D82B20CC7400481368 /* PushedFromPresented.swift in Sources */,
 				118F67BB2B1F8177002CD0B8 /* HomeScreen.swift in Sources */,
 				118F67B92B1F8165002CD0B8 /* HomeDetailScreen.swift in Sources */,
 				118F679E2B1F8016002CD0B8 /* SwiftUIRouterDemoApp.swift in Sources */,
+				11B234D62B20CC3100481368 /* PresentedFromHome.swift in Sources */,
 				118F67B22B1F8121002CD0B8 /* HomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

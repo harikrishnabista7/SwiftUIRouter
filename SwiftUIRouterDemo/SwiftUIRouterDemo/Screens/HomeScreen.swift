@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     let goToDetail: () -> Void
+    let present: () -> Void
 
     var body: some View {
         Button {
@@ -17,5 +18,15 @@ struct HomeScreen: View {
             Text("Go to detail")
         }
         .navigationTitle("Home")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    present()
+                } label: {
+                    Text("Present")
+                }
+
+            }
+        }
     }
 }

@@ -8,9 +8,7 @@ import SwiftUI
 import SwiftUIRouter
 
 enum HomeCoordinatorRoute: Route {
-    var id: Self { self }
-    
-    case home, detail
+    case home, detail, presentWithNavigation, pushFromNavigation
 }
 
 struct HomeCoordinator: View {
@@ -20,17 +18,27 @@ struct HomeCoordinator: View {
         RoutingView(router: router) { route in
             switch route {
             case .home:
-                HomeScreen(goToDetail: showDetail)
+                HomeScreen(goToDetail: showDetail) {
+                    router.presentCover(.presentWithNavigation, withNavigation: true)
+                }
             case .detail:
                 HomeDetailScreen(goBack: goBack)
+            case .presentWithNavigation:
+                PresentedFromHome {
+                    router.push(.pushFromNavigation)
+                }
+            case .pushFromNavigation:
+                PushedFromPresented {
+                    router.dismiss()
+                }
             }
         }
     }
-    
+
     private func showDetail() {
         router.push(.detail)
     }
-    
+
     private func goBack() {
         router.pop()
     }

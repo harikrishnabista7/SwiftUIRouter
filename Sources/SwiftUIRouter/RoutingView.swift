@@ -42,11 +42,11 @@ public struct RoutingView<R: Route, Content: View>: View {
         if canPresent {
             content(route)
                 .fullScreenCover(item: $router.coverRoute,
-                                 onDismiss: router.onDismiss) { route in
+                                 onDismiss: router.dismissHandler()) { route in
                     getContentForPresented(route: route)
                 }
                 .sheet(item: $router.sheetRoute,
-                       onDismiss: router.onDismiss) { route in
+                       onDismiss: router.dismissHandler()) { route in
                     getContentForPresented(route: route)
                 }
 

@@ -1,6 +1,6 @@
 //
 //  Router.swift
-//  
+//
 //
 //  Created by HariKrishnaBista on 05/12/23.
 //
@@ -15,7 +15,7 @@ import Foundation
   ```swift
  Router(root: Route)
  **/
-public class Router<R: Route>: ObservableObject {
+public final class Router<R: Route>: ObservableObject {
     /// Root of the stack
     let root: R
 
@@ -48,6 +48,15 @@ public class Router<R: Route>: ObservableObject {
     ///   - root: The view to display when the no other view is pushed or presented.
     public init(root: R) {
         self.root = root
+    }
+
+    /// Clean up router after swipe dismiss
+    /// - Returns: Handler
+    func dismissHandler() -> () -> Void {
+        return { [weak self] in
+            self?.dismiss()
+            self?.onDismiss?()
+        }
     }
 
     /// Helper method to get current router to be used for push, pop events
