@@ -30,18 +30,39 @@ public struct RoutingView<R: Route, Content: View>: View {
 
     public var body: some View {
         NavigationStack(path: $router.routePath) {
-            content(router.root)
+            getContent(for: router.root, canPresent: router.routePath.isEmpty)
                 .navigationDestination(for: R.self) { route in
-                    content(route)
+                    getContent(for: route, canPresent: router.routePath.last == route)
                 }
+        }
+    }
+
+    @ViewBuilder
+    private func getContent(for route: R, canPresent: Bool) -> some View {
+        if canPresent {
+            content(route)
                 .fullScreenCover(item: $router.coverRoute,
                                  onDismiss: router.onDismiss) { route in
-                    content(route)
+                    getContentForPresented(route: route)
                 }
                 .sheet(item: $router.sheetRoute,
                        onDismiss: router.onDismiss) { route in
-                    content(route)
+                    getContentForPresented(route: route)
                 }
+
+        } else {
+            content(route)
+        }
+    }
+
+    @ViewBuilder
+    private func getContentForPresented(route: R) -> some View {
+        if let subRouter = router.subRouter {
+            RoutingView(router: subRouter) { route in
+                content(route)
+            }
+        } else {
+            content(route)
         }
     }
 }

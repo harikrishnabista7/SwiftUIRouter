@@ -8,7 +8,7 @@
 import Foundation
 
 /// Helper extension for Router
-public extension Array where Element: Route {
+extension Array where Element: Route {
     mutating func push(_ route: Element) {
         append(route)
     }
@@ -17,10 +17,12 @@ public extension Array where Element: Route {
         removeLast()
     }
 
-    mutating func popTo(_ route: Element) {
+    mutating func popTo(_ route: Element) -> Bool {
         if let index = firstIndex(of: route) {
             self = Array(self[0 ... index])
+            return true
         }
+        return false
     }
 
     mutating func popToRoot() {
